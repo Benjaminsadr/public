@@ -137,7 +137,7 @@ p, li { max-width: var(--measure); }
 }
 .nav .has-sub.open .subnav, .nav .has-sub:focus-within .subnav { display: flex; }
 
-@media (max-width: 1260px) {
+@media (max-width: 1023px) {
   .nav-toggle { display: inline-block; }
   .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: #fff; border-bottom: 1px solid var(--line); }
   .nav.open { display: block; }
@@ -145,6 +145,17 @@ p, li { max-width: var(--measure); }
   .nav .subnav { position: static; display: flex; box-shadow: none; border: 0; padding: 0 0 0 1rem !important; }
   .nav .cta-link { margin: 0.5rem 0 0; text-align: center; }
   .contactbar .wrap { justify-content: flex-start; }
+}
+
+/* Desktop mit schmalerem Fenster: Navigation kompakter statt Handy-Menü */
+@media (min-width: 1024px) and (max-width: 1260px) {
+  .site-header .wrap { gap: 0.75rem; }
+  .brand { gap: 0.55rem; }
+  .brand-text strong { font-size: 1rem; }
+  .brand-text small { font-size: 0.72rem; }
+  .nav ul { gap: 0; }
+  .nav a, .nav button.sub-toggle { padding: 0.5rem 0.42rem; font-size: 0.86rem; }
+  .nav .cta-link { margin-left: 0.3rem; padding: 0.5rem 0.7rem; }
 }
 
 /* ---------- Buttons ---------- */
@@ -392,6 +403,7 @@ td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: t
   .doc-layout { grid-template-columns: 1fr; }
   body { font-size: 11pt; }
 }
+
 /* ---------- Mobile-Korrekturen (Desktop unverändert) ---------- */
 @media (max-width: 900px) {
   .doc-layout { grid-template-columns: minmax(0, 1fr); }
@@ -399,7 +411,7 @@ td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: t
 }
 @media (max-width: 760px) {
   body { overflow-x: clip; }
-  .contactbar .wrap > span:nth-child(2) { display: none; }
+  .contactbar .wrap > span:nth-child(2) { display: none; } /* Fax nur mobil ausblenden */
   .site-header .wrap { gap: 0.5rem; }
   .brand { min-width: 0; }
   .brand-text strong { font-size: 1rem; }
@@ -407,6 +419,7 @@ td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: t
   .stamp { right: 0.6rem; }
   h1 { overflow-wrap: break-word; hyphens: auto; }
 }
+/* Seitenabstand links/rechts auf Unterseiten (wurde von .doc-layout/.legal überschrieben) */
 @media (max-width: 1200px) {
   .doc-layout, .legal { padding-left: 1.25rem; padding-right: 1.25rem; }
 }
