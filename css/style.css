@@ -392,3 +392,21 @@ td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: t
   .doc-layout { grid-template-columns: 1fr; }
   body { font-size: 11pt; }
 }
+/* ---------- Mobile-Korrekturen (Desktop unverändert) ---------- */
+@media (max-width: 900px) {
+  .doc-layout { grid-template-columns: minmax(0, 1fr); }
+  .doc-layout > *, .split > *, .hero .wrap > *, .profile > * { min-width: 0; }
+}
+@media (max-width: 760px) {
+  body { overflow-x: clip; }
+  .contactbar .wrap > span:nth-child(2) { display: none; }
+  .site-header .wrap { gap: 0.5rem; }
+  .brand { min-width: 0; }
+  .brand-text strong { font-size: 1rem; }
+  .brand-text small { font-size: 0.75rem; }
+  .stamp { right: 0.6rem; }
+  h1 { overflow-wrap: break-word; hyphens: auto; }
+}
+@media (max-width: 1200px) {
+  .doc-layout, .legal { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
